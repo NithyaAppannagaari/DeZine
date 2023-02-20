@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DeZine</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="author" content="Nithya Appannagaari">
+<style>
+
+
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Quicksand"}
+body, html {
+  height: 100%;
+  line-height: 1.8;
+  background-color: #557d77;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 300px;
+
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.fade-in {
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.counters {
+	color: #fff;
+	padding: 30px 20px;
+}
+
+.counters .container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 30px;
+	text-align: center;
+}
+
+.counters i {
+	color: #557d77;
+	margin-bottom: 5px;
+}
+
+.counters .counter {
+	font-size: 55px;
+	margin: 10px 0;
+}
+
+@media (max-width: 700px) {
+	.counters .container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.counters .container > div:nth-of-type(1),
+	.counters .container > div:nth-of-type(2) {
+		border-bottom: 1px #1eaf99;
+		padding-bottom: 20px;
+	}
+
+}
+
+#about {
+  line-height: 1.8;
+  background-size: cover;
+}
+
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173124747-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173124747-1');
+</script>
+
+</head>
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top" style="background-color:#1eaf99(255, 128, 128, 0.5);height:65px;position:fixed">
+    <!-- class="w3-bar w3-white w3-card" -->
+    <div style="background:transparent" id="myNavbar">
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small" style="background:transparent;height:45px;top:50%;margin-top:10px">
+        <a href = "index.html" style= "color: white; border-radius:30px" class="w3-bar-item w3-btn  w3-ripple">HOME</a>
+        <a href="order.html" style= "color: white; border-radius:30px" class="w3-bar-item w3-btn  w3-ripple">ORDER</a>
+        <a href="designs.html" style= "color: white; border-radius:30px" class="w3-bar-item w3-btn w3-ripple">DESIGNS</a>
+        <a href="contact.html" style= "color: white; border-radius:30px" class="w3-bar-item w3-btn w3-ripple"><i class="fa fa-envelope"></i> CONTACT</a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="order.html" onclick="w3_close()" class="w3-bar-item w3-button">ORDER</a>
+    <a href="designs.html" onclick="w3_close()" class="w3-bar-item w3-button">DESIGNS</a>
+    <a href="contact.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+  </nav>
+
+  
+
+<div class= "w3-container " style= "padding:130px 1px 50px 50px;" id="about">
+  <h1 class="w3-center" style = "color:#ffffff; font-size: 75px"><b>Designs</b> </h1>
+
+  <h4 style = "color:#ffffff">MVRT - Monta Vista Robotics Team</h4>
+    <div class="gallery">
+     <img src="MVRT_Hoodie_Back_2023.png" alt="MVRT Hoodie Design" width="600" height="400">
+    </div>
+    <div class="gallery">
+     <img src="MVRTHoodieFront2023.png" alt="MVRT Hoodie Design" width="600" height="400">
+    </div>
+    <div class="gallery">
+     <img src="shirt_back_2023.png" alt="MVRT Shirt Design" width="600" height="400">
+    </div>
+    <div class="gallery">
+     <img src="sticker2023.png" alt="MVRT Sticker Design" width="600" height="400">
+    </div>
+    <div class="gallery">
+     <img src="IMG_1001.jpg" alt="MVRT Flyer Design" width="600" height="400">
+    </div>
+</div>
+   
+    <div class= "w3-container" style= "padding:0px 0px 50px 50px;">
+        <h4 style = "color:#ffffff">Codenovate</h4>
+        <div class="gallery">
+         <img src="sticker.png" alt="Sticker" width="600" height="400">
+        </div>
+        <div class="gallery">
+         <img src="spring.png" alt="Spring Workshop Flyer" width="600" height="400">
+        </div>
+        <div class="gallery">
+         <img src="IMG_1002.jpg" alt="Codenovate Flyer" width="600" height="400">
+        </div>
+    </div>
+       
+    <div class= "w3-container" style= "padding:0px 0px 50px 50px;">
+        <h4 style = "color:#ffffff">Music.calm</h4>
+        <div class="gallery">
+         <img src="palletteOrMoodboard.png" alt="Music.calm Logo" width="600" height="400">
+        </div>
+    </div>
+
+    <div class= "w3-container" style= "padding:0px 0px 50px 50px;">
+        <h4 style = "color:#ffffff">Website Design - Bee Aware and TTT</h4>
+        <div class="gallery">
+         <img src="bee.png" alt="Bee Aware Logo" width="600" height="400">
+        </div>
+        <div class="gallery">
+            <img src="Screen_Shot_2022-06-17_at_10.13.35_PM.png" alt="Bee Aware UI" width="600" height="400">
+        </div>
+        <div class="gallery">
+            <img src="unknown.png" alt="TTT UI" width="600" height="400">
+        </div>
+    </div>
+
+    <div class= "w3-container" style= "padding:0px 0px 50px 50px;">
+        <h4 style = "color:#ffffff">Misc Designs</h4>
+        <div class="gallery">
+         <img src="IMG_1003.jpg" alt="ice cream logo" width="600" height="400">
+        </div>
+        <div class="gallery">
+            <img src="IMG_1004.jpg" alt="butterfly logo" width="600" height="400">
+        </div>
+    </div>
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+</body>
+</html>

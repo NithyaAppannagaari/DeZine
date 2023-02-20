@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DeZine</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="author" content="Nithya Appannagaari">
+<style>
+
+
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Quicksand"}
+body, html {
+  height: 100%;
+  line-height: 1.8;
+  background-color: #557d77;
+  position: relative;
+}
+
+.center {
+    text-align: center;
+}
+
+.button {
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.button:hover{
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(181, 207, 203, 0.2);
+  -moz-box-shadow: 0px 0px 20px 5px rgba(181, 207, 203, 0.2);
+  box-shadow: 0px 0px 20px 5px rgba(181, 207, 203, 0.2);
+}
+
+.order-page {
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.order-page h1 {
+    color:white;
+    font-size: 75px;
+}
+
+.order-page h5 {
+    color:white;
+}
+
+
+.order-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.payment-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-content h2{
+    color:#b5cfcb;
+    text-align:center;
+    padding: 50px;
+}
+
+.order-content h2{
+    color:#b5cfcb;
+    text-align:left;
+    padding: 50px;
+}
+
+.order-content textarea{
+    width: 100%;
+    height: 50px;
+    margin-right: 50px;
+    box-sizing: border-box;
+    border: 3px solid #596162;
+    border-radius: 4px;
+    background-color: #b5cfcb;
+    font-size: 16px;
+    font-family: "Quicksand";
+    resize: none;
+    position: relative;
+    align-self: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+div.gallery {
+  border: 5px solid #557d77;
+  background-color: #b5cfcb;
+  width: 50%;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.fade-in {
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+}
+
+.cb-slideshow,
+.cb-slideshow:after { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0; 
+}
+.cb-slideshow:after { 
+    content: '';
+    background-image: linear-gradient(to right, rgba(4,29,34,0.8),rgba(4,29,34,0.8));
+   /* background: transparent url(../images/pattern.png) repeat top left; */
+}
+
+.cb-slideshow li span { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 36s linear infinite 0s; 
+}
+
+.cb-slideshow li:nth-child(1) span { 
+    background-image: url(MVRTHoodieFront2023.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.cb-slideshow li:nth-child(2) span { 
+    background-image: url(MVRT_Hoodie_Back_2023.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    animation-delay: 6s; 
+}
+.cb-slideshow li:nth-child(3) span { 
+    background-image: url(sticker2023.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    animation-delay: 12s; 
+}
+.cb-slideshow li:nth-child(4) span { 
+    background-image: url(spring.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    animation-delay: 18s; 
+}
+.cb-slideshow li:nth-child(5) span { 
+    background-image: url(palletteOrMoodboard.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    animation-delay: 24s; 
+}
+.cb-slideshow li:nth-child(6) span { 
+    background-image: url(IMG_1001.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    animation-delay: 30s; 
+}
+
+.no-cssanimations .cb-slideshow li span{
+	opacity: 1;
+}
+
+@keyframes imageAnimation { 
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.counters {
+	color: #fff;
+	padding: 30px 20px;
+}
+
+.counters .container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 30px;
+	text-align: center;
+}
+
+.counters i {
+	color: #557d77;
+	margin-bottom: 5px;
+}
+
+.counters .counter {
+	font-size: 55px;
+	margin: 10px 0;
+}
+
+@media (max-width: 700px) {
+	.counters .container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.counters .container > div:nth-of-type(1),
+	.counters .container > div:nth-of-type(2) {
+		border-bottom: 1px #1eaf99;
+		padding-bottom: 20px;
+	}
+
+}
+
+#about {
+  line-height: 1.8;
+  background-color: #596162;
+  background-size: cover;
+}
+
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173124747-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173124747-1');
+</script>
+
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top" style="background-color:#1eaf99(255, 128, 128, 0.5);height:65px;position:fixed">
+  <!-- class="w3-bar w3-white w3-card" -->
+  <div style="background:transparent" id="myNavbar">
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small" style="background:transparent;height:45px;top:50%;margin-top:10px">
+      <a href = "index.html" style= "color: white; border-radius:30px" class="w3-bar-item w3-btn  w3-ripple">HOME</a>
+      <a href="order.html" style= "color: white; border-radius:30px" class="w3-bar-item w3-btn  w3-ripple">ORDER</a>
+      <a href="designs.html" style= "color: white; border-radius:30px" class="w3-bar-item w3-btn w3-ripple">DESIGNS</a>
+      <a href="contact.html" style= "color: white; border-radius:30px" class="w3-bar-item w3-btn w3-ripple"><i class="fa fa-envelope"></i> CONTACT</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="aboutus.html" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="order.html" onclick="w3_close()" class="w3-bar-item w3-button">ORDER</a>
+  <a href="designs.html" onclick="w3_close()" class="w3-bar-item w3-button">DESIGNS</a>
+  <a href="contact.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header id="home" style="background: transparent;">
+
+ 
+</header>
+
+<body>
+   <div class = "order-page">
+    <h1 class="center">Order</h1>
+    <h5 class="center">Send us a message to detail the design you would like to purchase! Please fund the design using the embedded GoFundMe form. Designs will only be created once donation has been</h5>
+  
+    <form action="https://formspree.io/f/mjvdwwvl" method="POST">
+        <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+        <p><input class="w3-input w3-border" style = "height:150px" type="text" placeholder="Please describe your desired product (eg: t-shirt design, logo, etc), and give as much detail as possible!" required name="Message"></p>
+        <p>
+          <button class="w3-btn" type="submit" style="color:#557d77; background-color: #041d22; border-radius:30px;">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </p>
+      </form>
+    </div>
+   <div class = "payment-content">
+    <div class="gfm-embed" data-url="https://www.gofundme.com/f/fund-underfunded-public-schools-in-california/widget/large/"></div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+   </div>
+</body>
+
+<script>
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
